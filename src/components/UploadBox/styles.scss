@@ -1,0 +1,48 @@
+:local(.styles) {
+	.upload-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 405px;
+		background: $white;
+
+		&.drop {
+			border: 3px dashed $secondary;
+		}
+	}
+
+	.helper-text {
+		width: 220px;
+		display: inline-block;
+		margin-top: 20px;
+	}
+
+	.upload-actions {
+		text-align: center;
+
+		#file-list {
+			display: inline-block;
+		}
+	}
+
+	.upload-icon {
+		font-size: 150px;
+		color: $darkGrey;
+	}
+
+	.upload-btn {
+		color: $white;
+		margin-bottom: 10px;
+	}
+
+	input[name="myFile"] {
+		display: none;
+	}
+
+	@media (max-width: 600px) {
+		.upload-container {
+			height: 515px;
+		}
+	}
+
+}

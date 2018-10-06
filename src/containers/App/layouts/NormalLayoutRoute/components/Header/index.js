@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import PropTypes            from 'prop-types'
 import { withRouter }       from 'react-router-dom'
 import AppBar               from 'components/AppBar'
+import Typography           from 'components/Typography'
 import Toolbar              from '@material-ui/core/Toolbar'
-import Typography           from '@material-ui/core/Typography'
 import IconButton           from '@material-ui/core/IconButton'
 import Menu                 from '@material-ui/core/Menu'
 import MenuItem             from '@material-ui/core/MenuItem'
 import AccountCircle        from '@material-ui/icons/AccountCircle'
 import { appConfig }        from 'configs/config-main'
+import Navigation           from './components/Navigation'
 import { styles }           from './styles.scss'
 
 class Header extends Component {
@@ -75,6 +76,7 @@ class Header extends Component {
             {menu}
           </Toolbar>
         </AppBar>
+        <Navigation />
       </div>
     )
   }

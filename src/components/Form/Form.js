@@ -1,0 +1,21 @@
+import React, { Component } from 'react'
+import PropTypes            from 'prop-types'
+import { formStyles }       from './styles.scss'
+
+class Form extends Component {
+  render() {
+    return (
+      <div className={formStyles}>
+        <form>
+          {this.props.children}
+        </form>
+      </div>
+    )
+  }
+}
+
+Form.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default Form

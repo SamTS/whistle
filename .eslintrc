@@ -20,7 +20,7 @@
   "settings" : {
     "import/resolver": {
       "node": {
-        "paths": ["src"]
+        "paths": ["src", "build"]
       }
     }
   },
@@ -51,6 +51,11 @@
       skipShapeProps: false
     }],
     "import/prefer-default-export": "off",
-    "function-paren-newline": "off"
+    "function-paren-newline": "off",
+    "jsx-a11y/label-has-for": [ "error", {
+        "required": {
+          "some": [ "id"  ]
+        }
+      }]
   }
 }

@@ -1,0 +1,24 @@
+:local(.modalStyles) {
+  height: 100%;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+
+  .bottom-navigation {
+    position: absolute;
+  }
+
+  .arrow-icon {
+    margin-left: -10px;
+  }
+
+  .bottom-section {
+    position: relative;
+    top: 50px;
+  }
+
+  @media (min-width: 900px) {
+    width: 600px;
+    height: 475px;
+  }
+}
