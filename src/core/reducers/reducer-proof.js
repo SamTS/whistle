@@ -1,8 +1,8 @@
 import constants from 'core/types'
 
 const initialState = {
-  stagedAsset: null,
-  assetHash: '',
+  stagedProof: null,
+  proofHash: '',
   alreadyExists: false,
   error: '',
   transaction: null,
@@ -13,19 +13,19 @@ export function proofReducer(state = initialState, action) {
   switch (action.type) {
     case constants.ADD_PROOF:
       return Object.assign({}, state, {
-        stagedAsset: action.asset[0]
+        stagedProof: action.proof
       })
 
     case constants.CREATE_PROOF_HASH:
       return Object.assign({}, state, {
-        assetHash: action.hash,
+        proofHash: action.hash,
         success: action.success,
         transaction: action.transaction
       })
 
     case constants.CHECK_PROOF:
       return Object.assign({}, state, {
-        assetHash: action.assetHash,
+        proofHash: action.proofHash,
         alreadyExists: action.alreadyExists
       })
 

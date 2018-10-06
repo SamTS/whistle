@@ -53,9 +53,10 @@
     "import/prefer-default-export": "off",
     "function-paren-newline": "off",
     "jsx-a11y/label-has-for": [ "error", {
-        "required": {
-          "some": [ "id"  ]
-        }
-      }]
+      "required": {
+        "some": [ "id"  ]
+      }
+    }],
+    'jsx-a11y/anchor-is-valid': ['off']
   }
 }

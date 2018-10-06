@@ -1,31 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes            from 'prop-types'
-import { isEmail }          from 'validator'
+import { textAreaStyles }   from './styles.scss'
 
-/* component styles */
-import { inputStyles } from './styles.scss'
-
-class Input extends Component {
-  /** **** Validity rules go here ****** */
-  static determineValidity(type, value) {
-    switch (type) {
-      case 'email':
-        return {
-          type,
-          valid: isEmail(value),
-          value
-        }
-      case 'text':
-        return {
-          type,
-          valid: value.length > 0,
-          value
-        }
-      default:
-        return false
-    }
-  }
-
+class TextArea extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -37,7 +14,7 @@ class Input extends Component {
     const { value, autoFocus } = this.props
     /* eslint-disable */
     if (value) { this.setState({ value }) }
-    if (autoFocus) { this.input.focus() }
+    if (autoFocus) { this.TextArea.focus() }
   }
 
   onChange=(evt) => {
@@ -45,10 +22,6 @@ class Input extends Component {
     const { type, checkIfValid } = this.props
 
     this.setState({ value })
-
-    if (checkIfValid) {
-      checkIfValid(Input.determineValidity(type, value))
-    }
   }
 
   onKeyPress = (evt) => {
@@ -66,12 +39,12 @@ class Input extends Component {
     } = this.props
 
     return (
-      <div className={inputStyles}>
-        <input
+      <div className={textAreaStyles}>
+        <TextArea
           type={type}
           required={required}
           value={value}
-          ref={(input) => { this.input = input }}
+          ref={(TextArea) => { this.TextArea = TextArea }}
           placeholder={placeholder}
           onChange={this.onChange}
           onBlur={this.onBlur}
@@ -83,7 +56,7 @@ class Input extends Component {
   }
 }
 
-Input.propTypes = {
+TextArea.propTypes = {
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   onKeyPress: PropTypes.func,
@@ -94,7 +67,7 @@ Input.propTypes = {
   value: PropTypes.string
 }
 
-Input.defaultProps = {
+TextArea.defaultProps = {
   autoFocus: false,
   disabled: false,
   onKeyPress: null,
@@ -104,4 +77,4 @@ Input.defaultProps = {
   value: ''
 }
 
-export default Input
+export default TextArea

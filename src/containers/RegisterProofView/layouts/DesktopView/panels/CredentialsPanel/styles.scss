@@ -1,0 +1,16 @@
+:local(.styles) {
+  .form-section {
+    display: inline-block;
+    width: 100%;
+
+    label {
+      font-size: 20px;
+    }
+
+    input {
+      width: 97%;
+      height: 20px;
+      font-size: 30px;
+    }
+  }
+}

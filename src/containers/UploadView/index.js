@@ -3,7 +3,7 @@ import PropTypes                      from 'prop-types'
 import { connect }                    from 'react-redux'
 import { bindActionCreators }         from 'redux'
 import { withRouter }                 from 'react-router-dom'
-import * as ProofActionCreators       from 'core/actions/actions-proof'
+import * as proofActionCreators       from 'core/actions/actions-proof'
 import * as uiActionCreators          from 'core/actions/actions-ui'
 import { StandardModal }              from 'components/Modals'
 import AppBar                         from 'components/AppBar'
@@ -32,10 +32,10 @@ class UploadView extends Component {
 
   close= () => {
     const { history } = this.props
-    history.push('/assets')
+    history.push('/politics')
   }
 
-  registerAsset=(asset) => {
+  registerProof=(proof) => {
     const {
       actions,
       history,
@@ -43,7 +43,7 @@ class UploadView extends Component {
     } = this.props
 
     if (provider.web3Provider !== null) {
-      actions.asset.addAsset(asset)
+      actions.proof.addAsset(proof)
       history.push('/register?panel=1')
     } else {
       actions.ui.openModal({ modalKey: 'install-metamask-modal' })
@@ -83,7 +83,7 @@ class UploadView extends Component {
             <UploadBox
               onDrop={this.onDrop}
               setUploadedFile={this.setUploadedFile}
-              registerAsset={this.registerAsset}
+              registerAsset={this.registerProof}
             />
           </div>
         </div>
@@ -103,14 +103,14 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       ui: bindActionCreators(uiActionCreators, dispatch),
-      asset: bindActionCreators(ProofActionCreators, dispatch)
+      proof: bindActionCreators(proofActionCreators, dispatch)
     }
   }
 }
 
 UploadView.propTypes = {
   actions: PropTypes.shape({}).isRequired,
-  asset: PropTypes.shape({}),
+  proof: PropTypes.shape({}),
   history: PropTypes.shape({}).isRequired,
   provider: PropTypes.shape({}).isRequired,
   ui: PropTypes.shape({}).isRequired,
@@ -118,7 +118,7 @@ UploadView.propTypes = {
 }
 
 UploadView.defaultProps = {
-  asset: null
+  proof: null
 }
 
 export default withWidth()(withRouter(connect(mapStateToProps, mapDispatchToProps)(UploadView)))

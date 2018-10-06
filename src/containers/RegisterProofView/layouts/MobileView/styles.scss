@@ -1,0 +1,13 @@
+:local(.styles) {
+  #registration-form-container {
+    padding: 20px;
+  }
+
+  #registration-form {
+    display: flex;
+    padding: 20px 20px 25px 20px;
+    flex-direction: column;
+    background-color: $beige;
+    border-radius: 5px;
+  }
+}

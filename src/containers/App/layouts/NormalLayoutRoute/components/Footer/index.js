@@ -9,7 +9,7 @@ import { styles }           from './styles.scss'
 class Footer extends Component {
   onClick = () => {
     const { history } = this.props
-    history.push('/upload')
+    history.push('/register?panel=1')
   }
 
   render() {

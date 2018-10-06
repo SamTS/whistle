@@ -16,7 +16,7 @@ class Stepper extends Component {
         <MuiStepper activeStep={activeStep}>
           {steps.map((label) => {
             return (
-              <Step key={label} {...this.props}>
+              <Step key={label}>
                 <StepLabel
                   classes={{ root: 'root', disabled: 'disabled' }}
                 >

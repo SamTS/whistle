@@ -3,16 +3,16 @@ import contract     from 'truffle-contract'
 import CryptoSource from 'contracts/CryptoSource.json'
 import sha256       from 'sha256'
 
-export function addAsset(asset) {
+export function addProof(proof) {
   return {
-    type: constants.ADD_ASSET,
-    asset
+    type: constants.ADD_PROOF,
+    proof
   }
 }
 
-function checkIfProofRegistered(CryptoSourceContract, assetHash, resolve, reject) {
+function checkIfProofRegistered(CryptoSourceContract, proofHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
-    return poe.checkIfRegistered(assetHash)
+    return poe.checkIfRegistered(proofHash)
   })
     .then((exists) => {
       const assetExists = !!exists
@@ -23,9 +23,9 @@ function checkIfProofRegistered(CryptoSourceContract, assetHash, resolve, reject
     })
 }
 
-function registerProof(CryptoSourceContract, assetHash, resolve, reject) {
+function registerProof(CryptoSourceContract, proofHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
-    return poe.registerProof(assetHash)
+    return poe.registerProof(proofHash)
   })
     .then((result) => {
       const transaction = (result !== null) ? result : null
@@ -39,27 +39,27 @@ function registerProof(CryptoSourceContract, assetHash, resolve, reject) {
 function dispatchAssetAlreadyExists(dispatch) {
   dispatch((() => {
     return {
-      type: constants.CHECK_Proof,
+      type: constants.CHECK_PROOF,
       alreadyExists: true
     }
   })())
 }
 
-function dispatchAssetDoesNotExist(assetHash, dispatch) {
+function dispatchAssetDoesNotExist(proofHash, dispatch) {
   dispatch((() => {
     return {
-      type: constants.CHECK_Proof,
+      type: constants.CHECK_PROOF,
       alreadyExists: false,
-      assetHash
+      proofHash
     }
   })())
 }
 
-function dispatchAssetCreated(transaction, assetHash, dispatch) {
+function dispatchAssetCreated(transaction, proofHash, dispatch) {
   dispatch((() => {
     return {
-      type: constants.CREATE_Proof_HASH,
-      assetHash,
+      type: constants.CREATE_PROOF_HASH,
+      proofHash,
       transaction,
       success: true
     }
@@ -69,7 +69,7 @@ function dispatchAssetCreated(transaction, assetHash, dispatch) {
 function dispatchCreationError(dispatch) {
   dispatch((() => {
     return {
-      type: constants.CREATE_Proof_HASH,
+      type: constants.CREATE_PROOF_HASH,
       success: false
     }
   })())
@@ -78,7 +78,7 @@ function dispatchCreationError(dispatch) {
 function dispatchError(error, dispatch) {
   dispatch((() => {
     return {
-      type: constants.Proof_ERROR,
+      type: constants.PROOF_ERROR,
       error
     }
   })())
@@ -88,19 +88,19 @@ export function checkIfRegistered(assetUrl) {
   return (dispatch, getState) => {
     const { web3Provider } = getState().provider
     const CryptoSourceContract = contract(CryptoSource)
-    const assetHash = sha256(assetUrl)
+    const proofHash = sha256(assetUrl)
 
     CryptoSourceContract.setProvider(web3Provider.currentProvider)
     CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
 
     return new Promise((resolve, reject) => {
-      checkIfProofRegistered(CryptoSourceContract, assetHash, resolve, reject)
+      checkIfProofRegistered(CryptoSourceContract, proofHash, resolve, reject)
     })
       .then((assetExists) => {
         if (assetExists) {
           dispatchAssetAlreadyExists(dispatch)
         } else {
-          dispatchAssetDoesNotExist(assetHash, dispatch)
+          dispatchAssetDoesNotExist(proofHash, dispatch)
         }
       })
       .catch((error) => {
@@ -112,18 +112,18 @@ export function checkIfRegistered(assetUrl) {
 export function register() {
   return (dispatch, getState) => {
     const { web3Provider } = getState().provider
-    const { assetHash } = getState().asset
+    const { proofHash } = getState().proof
     const CryptoSourceContract = contract(CryptoSource)
 
     CryptoSourceContract.setProvider(web3Provider.currentProvider)
     CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
 
     return new Promise((resolve, reject) => {
-      registerProof(CryptoSourceContract, assetHash, resolve, reject)
+      registerProof(CryptoSourceContract, proofHash, resolve, reject)
     })
       .then((transaction) => {
         if (transaction) {
-          dispatchAssetCreated(transaction, assetHash, dispatch)
+          dispatchAssetCreated(transaction, proofHash, dispatch)
         } else {
           dispatchCreationError(dispatch)
         }
