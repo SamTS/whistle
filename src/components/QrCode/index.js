@@ -4,13 +4,12 @@ import { RequestQRCode } from '@bloomprotocol/share-kit'
 const QrCode = () => {
   const requestData = {
     action: 'request_attestation_data',
-    token: '0x8f31e48a585fd12ba58e70e03292cac712cbae39bc7eb980ec189aa88e24d043',
-    url: 'https://bloom.co/api/receiveData',
-    org_logo_url: 'https://bloom.co/images/notif/bloom-logo.png',
-    org_name: 'Bloom',
-    org_usage_policy_url: 'https://bloom.co/legal/terms',
-    org_privacy_policy_url: 'https://bloom.co/legal/privacy',
-    types: ['full-name', 'phone', 'email']
+    url: 'https://localhost/qrresponse', // use ngrok
+    org_logo_url: 'https://bloom.co/images/notif/bloom-logo.png', // TODO: change this to our logo
+    org_name: 'Crytpo Source',
+    org_usage_policy_url: 'https://bloom.co/legal/terms', // don't need to change these, dummy for POC
+    org_privacy_policy_url: 'https://bloom.co/legal/privacy', // don't need to change these, dummy for POC
+    types: ['phone', 'email'] // use phone and email for POC. Ideally this would be SSN
   }
 
   return <RequestQRCode requestData={requestData} size={200} />
