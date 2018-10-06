@@ -1,10 +1,10 @@
 import { combineReducers }    from 'redux'
-import { attestationReducer } from 'core/reducers/reducer-attestation'
+import { proofReducer }       from 'core/reducers/reducer-proof'
 import { providerReducer }    from 'core/reducers/reducer-provider'
 import uiReducer              from 'core/reducers/reducer-ui'
 
 const rootReducer = combineReducers({
-  attestation: attestationReducer,
+  proof: proofReducer,
   provider: providerReducer,
   ui: uiReducer
 })

@@ -1,10 +1,10 @@
 import keyMirror from 'keymirror'
 
 export default keyMirror({
-  ADD_ATTESTATION: null,
-  ATTESTATION_ERROR: null,
-  CHECK_ATTESTATION: null,
-  CREATE_ATTESTATION_HASH: null,
+  ADD_PROOF: null,
+  PROOF_ERROR: null,
+  CHECK_PROOF: null,
+  CREATE_PROOF_HASH: null,
   CLEAR_UI: null,
   CLOSE_LEFT_NAV: null,
   OPEN_MODAL: null,

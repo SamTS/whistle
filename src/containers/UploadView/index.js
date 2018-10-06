@@ -3,7 +3,7 @@ import PropTypes                      from 'prop-types'
 import { connect }                    from 'react-redux'
 import { bindActionCreators }         from 'redux'
 import { withRouter }                 from 'react-router-dom'
-import * as attestationActionCreators from 'core/actions/actions-attestation'
+import * as ProofActionCreators       from 'core/actions/actions-proof'
 import * as uiActionCreators          from 'core/actions/actions-ui'
 import { StandardModal }              from 'components/Modals'
 import AppBar                         from 'components/AppBar'
@@ -103,7 +103,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       ui: bindActionCreators(uiActionCreators, dispatch),
-      asset: bindActionCreators(attestationActionCreators, dispatch)
+      asset: bindActionCreators(ProofActionCreators, dispatch)
     }
   }
 }

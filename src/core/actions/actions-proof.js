@@ -10,7 +10,7 @@ export function addAsset(asset) {
   }
 }
 
-function checkIfAttestationRegistered(CryptoSourceContract, assetHash, resolve, reject) {
+function checkIfProofRegistered(CryptoSourceContract, assetHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
     return poe.checkIfRegistered(assetHash)
   })
@@ -23,9 +23,9 @@ function checkIfAttestationRegistered(CryptoSourceContract, assetHash, resolve, 
     })
 }
 
-function registerAttestation(CryptoSourceContract, assetHash, resolve, reject) {
+function registerProof(CryptoSourceContract, assetHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
-    return poe.registerAttestation(assetHash)
+    return poe.registerProof(assetHash)
   })
     .then((result) => {
       const transaction = (result !== null) ? result : null
@@ -39,7 +39,7 @@ function registerAttestation(CryptoSourceContract, assetHash, resolve, reject) {
 function dispatchAssetAlreadyExists(dispatch) {
   dispatch((() => {
     return {
-      type: constants.CHECK_ATTESTATION,
+      type: constants.CHECK_Proof,
       alreadyExists: true
     }
   })())
@@ -48,7 +48,7 @@ function dispatchAssetAlreadyExists(dispatch) {
 function dispatchAssetDoesNotExist(assetHash, dispatch) {
   dispatch((() => {
     return {
-      type: constants.CHECK_ATTESTATION,
+      type: constants.CHECK_Proof,
       alreadyExists: false,
       assetHash
     }
@@ -58,7 +58,7 @@ function dispatchAssetDoesNotExist(assetHash, dispatch) {
 function dispatchAssetCreated(transaction, assetHash, dispatch) {
   dispatch((() => {
     return {
-      type: constants.CREATE_ATTESTATION_HASH,
+      type: constants.CREATE_Proof_HASH,
       assetHash,
       transaction,
       success: true
@@ -69,7 +69,7 @@ function dispatchAssetCreated(transaction, assetHash, dispatch) {
 function dispatchCreationError(dispatch) {
   dispatch((() => {
     return {
-      type: constants.CREATE_ATTESTATION_HASH,
+      type: constants.CREATE_Proof_HASH,
       success: false
     }
   })())
@@ -78,7 +78,7 @@ function dispatchCreationError(dispatch) {
 function dispatchError(error, dispatch) {
   dispatch((() => {
     return {
-      type: constants.ATTESTATION_ERROR,
+      type: constants.Proof_ERROR,
       error
     }
   })())
@@ -94,7 +94,7 @@ export function checkIfRegistered(assetUrl) {
     CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
 
     return new Promise((resolve, reject) => {
-      checkIfAttestationRegistered(CryptoSourceContract, assetHash, resolve, reject)
+      checkIfProofRegistered(CryptoSourceContract, assetHash, resolve, reject)
     })
       .then((assetExists) => {
         if (assetExists) {
@@ -119,7 +119,7 @@ export function register() {
     CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
 
     return new Promise((resolve, reject) => {
-      registerAttestation(CryptoSourceContract, assetHash, resolve, reject)
+      registerProof(CryptoSourceContract, assetHash, resolve, reject)
     })
       .then((transaction) => {
         if (transaction) {
