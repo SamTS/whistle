@@ -9,7 +9,7 @@ const initialState = {
   success: false
 }
 
-export function ProofReducer(state = initialState, action) {
+export function proofReducer(state = initialState, action) {
   switch (action.type) {
     case constants.ADD_PROOF:
       return Object.assign({}, state, {
