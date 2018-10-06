@@ -1,0 +1,14 @@
+:local(.styles) {
+  .form-section {
+    display: inline-block;
+    width: 100%;
+
+    input[type="text"]:disabled {
+      opacity: 0.6;
+    }
+
+    input {
+      width: 97%;
+    }
+  }
+}
