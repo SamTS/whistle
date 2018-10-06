@@ -10,7 +10,9 @@ import {
 } from 'react-router-dom'
 import Web3                         from 'web3'
 import theme                        from 'configs/theme/config-theme'
-import TopicsView                   from 'containers/TopicsView'
+import PoliticsView                 from 'containers/PoliticsView'
+import BusinessView                 from 'containers/BusinessView'
+import EthicsView                   from 'containers/EthicsView'
 import UploadView                   from 'containers/UploadView'
 import RegisterProofView            from 'containers/RegisterProofView'
 import * as providerActionCreators  from 'core/actions/actions-provider'
@@ -36,10 +38,12 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <HashRouter>
           <Switch>
-            <NormalLayoutRoute path="/topics" component={TopicsView} />
+            <NormalLayoutRoute path="/politics" component={PoliticsView} />
+            <NormalLayoutRoute path="/business" component={BusinessView} />
+            <NormalLayoutRoute path="/ethics" component={EthicsView} />
             <NormalLayoutRoute path="/upload" component={UploadView} />
             <RegistrationLayoutRoute path="/register" component={RegisterProofView} />
-            <Redirect from="/" to="/topics" />
+            <Redirect from="/" to="/politics" />
           </Switch>
         </HashRouter>
         <MetaMaskNotification />
