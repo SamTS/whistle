@@ -25,12 +25,17 @@ class CredentialsPanel extends Component {
 
     return (
       <div className={styles}>
-        <h2>Enter Your Credentials</h2>
-        <span>Your MetaMask Public Key will be registered on the Blockchain</span>
+        <h2>Your Public Key</h2>
+        <p>A public key is an anonymous signature that can be used to identify
+        a timestamp on a blockchain.
+        </p>
+        <p>The proof you are about to timestamp will be associated with the following
+        public key that you automatically get from MetaMask.
+        </p>
         <Form>
 
           <div className="form-section">
-            <Label text="Your Account ID (from MetaMask)" />
+            <Label text="Your Public Key (from MetaMask)" />
             <Input
               type="text"
               disabled

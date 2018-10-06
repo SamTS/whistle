@@ -48,7 +48,7 @@ class MobileView extends Component {
 
     switch (panel) {
       case 1:
-        return 'Enter Your Credentials'
+        return 'Your Credentials'
       case 2:
         return 'Generate Unique Hash'
       case 3:

@@ -3,12 +3,14 @@
     display: inline-block;
     width: 100%;
 
-    input[type="text"]:disabled {
-      opacity: 0.6;
+    label {
+      font-size: 20px;
     }
 
     input {
       width: 97%;
+      height: 20px;
+      font-size: 30px;
     }
   }
 }

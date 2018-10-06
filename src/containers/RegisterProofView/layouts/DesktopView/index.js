@@ -37,7 +37,7 @@ class DesktopView extends Component {
             <Stepper
               activeStep={panel - 1}
               steps={[
-                'Enter Credentials',
+                'Your Public Key',
                 'Generate Unique Hash',
                 'Register'
               ]}
