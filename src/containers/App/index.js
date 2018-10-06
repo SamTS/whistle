@@ -12,7 +12,7 @@ import Web3                         from 'web3'
 import theme                        from 'configs/theme/config-theme'
 import TopicsView                   from 'containers/TopicsView'
 import UploadView                   from 'containers/UploadView'
-import RegisterAttestationView      from 'containers/RegisterAttestationView'
+import RegisterProofView            from 'containers/RegisterProofView'
 import * as providerActionCreators  from 'core/actions/actions-provider'
 import NormalLayoutRoute            from './layouts/NormalLayoutRoute'
 import RegistrationLayoutRoute      from './layouts/RegistrationLayoutRoute'
@@ -38,7 +38,7 @@ class App extends Component {
           <Switch>
             <NormalLayoutRoute path="/topics" component={TopicsView} />
             <NormalLayoutRoute path="/upload" component={UploadView} />
-            <RegistrationLayoutRoute path="/register" component={RegisterAttestationView} />
+            <RegistrationLayoutRoute path="/register" component={RegisterProofView} />
             <Redirect from="/" to="/topics" />
           </Switch>
         </HashRouter>
