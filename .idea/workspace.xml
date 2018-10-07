@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6daf0aa-1218-4cce-b633-5379057e9569" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/panels/GenerateProofPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/panels/GenerateProofPanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/components/Controls/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/components/Controls/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/PoliticsView/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/PoliticsView/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/PoliticsView/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/PoliticsView/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/UploadTextView/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UploadTextView/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/actions/actions-account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/actions/actions-account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/actions/actions-proof.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/actions/actions-proof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/reducers/reducer-account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/reducers/reducer-account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/types.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/PoliticsView/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="280">
+              <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -257,8 +251,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="134" />
-    <option name="y" value="24" />
+    <option name="x" value="375" />
+    <option name="y" value="23" />
     <option name="width" value="1546" />
     <option name="height" value="954" />
   </component>
@@ -445,10 +439,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33722000" />
+    <option name="totallyTimeSpent" value="33830000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="24" width="1546" height="954" extended-state="0" />
+    <frame x="375" y="23" width="1546" height="954" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983607" />
@@ -822,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/PoliticsView/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="280">
+          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>

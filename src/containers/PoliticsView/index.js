@@ -15,7 +15,7 @@ class PoliticsView extends Component {
     }, 2000)
   }
 
-  createPending = (validated) => validated ? 'Validated' : 'Pending!'
+  createPending = validated => (validated ? 'Validated' : 'Pending!')
 
   createButton = (content1, content2, content3, index, content4) => (
     <div className="politics-disclosure" key={index}>
@@ -44,6 +44,7 @@ class PoliticsView extends Component {
   render() {
     const { account } = this.props
     const { accountArray, blogArray } = account
+
 
     if (account && accountArray && accountArray[1] && accountArray[1].datePosted) {
       return (
