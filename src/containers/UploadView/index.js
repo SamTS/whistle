@@ -30,7 +30,17 @@ class UploadView extends Component {
     })
   }
 
-  close= () => {
+  onDrop = (file) => {
+    console.log('onDrop')
+    console.log(file)
+  }
+
+  setUploadedFile = (file) => {
+    console.log('setUploadedFile')
+    console.log(file)
+  }
+
+  close = () => {
     const { history } = this.props
     history.push('/politics')
   }
