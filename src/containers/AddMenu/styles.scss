@@ -1,0 +1,34 @@
+:local(.modalStyles) {
+  height: 100%;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+
+  .bottom-navigation {
+    position: absolute;
+  }
+
+  .arrow-icon {
+    margin-left: -10px;
+  }
+
+  .bottom-section {
+    position: relative;
+    top: 50px;
+  }
+
+  .toolbar-header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .stretched-button {
+    width: 100%;
+    height: 47px;
+  }
+
+  @media (min-width: 900px) {
+    width: 600px;
+    height: 475px;
+  }
+}
