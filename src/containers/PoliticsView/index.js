@@ -14,31 +14,36 @@ class PoliticsView extends Component {
     }, 2000)
   }
 
-  createPending = () => 'Pending! '
+  createPending = (validated) => validated ? 'Validated' : 'Pending!'
 
-  createButton = (content1, content2) => (
-    <Button className="politics-disclosure">
+  createButton = (content1, content2, content3, index) => (
+    <Button className="politics-disclosure" key={index}>
       <div>
         {content1}
       </div>
+      <span>&nbsp;&nbsp;</span>
       <div>
         {content2}
+      </div>
+      <span>&nbsp;&nbsp;</span>
+      <div>
+        {content3}
       </div>
     </Button>
   );
 
-  createPendingButton = content => (
-    this.createButton(this.createPending(), content)
+  createPendingButton = (content, realData, validated, index) => (
+    this.createButton(this.createPending(validated), content, realData, index)
   );
 
   render() {
     const { account } = this.props
-    const { accountArray } = account
+    const { accountArray, id } = account
 
     if (account && accountArray && accountArray[1] && accountArray[1].datePosted) {
       return (
         <div className="container">
-          {accountArray.map(payload => this.createPendingButton(payload.datePosted.toString()))}
+          {accountArray.map((payload, index) => this.createPendingButton(payload.datePosted.toString(), payload.realData, payload.verified, index))}
         </div>
       )
     }
