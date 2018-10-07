@@ -15,7 +15,7 @@ class GenerateProofPanel extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      enteredProof: '',
+      disclosure: '',
       nextBtnDisabled: true,
       prevDisabled: false
     }
@@ -23,17 +23,19 @@ class GenerateProofPanel extends Component {
 
   onEnter= (evt) => {
     const { value } = evt.currentTarget
-
     this.setState({
-      enteredProof: value,
+      disclosure: value,
       nextBtnDisabled: value !== '' ? false : true
     })
   }
 
   proceed = () => {
-    const { enteredProof } = this.state
+    debugger
+
+    const { disclosure } = this.state
     const { actions, history } = this.props
-    actions.proof.addProof(enteredProof)
+
+    actions.proof.postBlog('', disclosure)
     history.push('/disclosure?panel=3')
   }
 

@@ -111,7 +111,75 @@ export function checkIfRegistered(assetUrl) {
   }
 }
 
-//window.web3.sha3
+
+function validateProofInternal(CryptoSourceContract, normalText, resolve, reject){
+  CryptoSourceContract.deployed().then((poe) => {
+    return poe.confirmProof(window.web3.sha3(normalText), normalText)
+  })
+    .then((result) => {
+      const transaction = (result !== null) ? result : null
+      resolve(transaction)
+    })
+    .catch((error) => {
+      reject(error)
+    })
+}
+
+export function validateProof(normalText) {
+  return (dispatch, getState) => {
+    const { web3Provider } = getState().provider
+    const { proofHash } = getState().proof
+    const CryptoSourceContract = contract(CryptoSource)
+
+    CryptoSourceContract.setProvider(web3Provider.currentProvider)
+    CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
+
+    return new Promise((resolve, reject) => {
+      validateProofInternal(CryptoSourceContract, normalText, '0', resolve, reject)
+    })
+      .then((transaction) => {
+        if (transaction) {
+          dispatchAssetCreated(transaction, proofHash, dispatch)
+        } else {
+          dispatchCreationError(dispatch)
+        }
+      })
+  }
+}
+
+function internalBlog(CryptoSourceContract, title, content, resolve, reject){
+  CryptoSourceContract.deployed().then((poe) => {
+    return poe.postBlog(title, content)
+  })
+    .then((result) => {
+      const transaction = (result !== null) ? result : null
+      resolve(transaction)
+    })
+    .catch((error) => {
+      reject(error)
+    })
+}
+
+export function postBlog(title, content) {
+  return (dispatch, getState) => {
+    const { web3Provider } = getState().provider
+    const CryptoSourceContract = contract(CryptoSource)
+
+    CryptoSourceContract.setProvider(web3Provider.currentProvider)
+    CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
+
+    return new Promise((resolve, reject) => {
+      internalBlog(CryptoSourceContract, title, content, resolve, reject)
+    })
+      .then((transaction) => {
+        if (transaction) {
+          dispatchAssetCreated(transaction, proofHash, dispatch)
+        } else {
+          dispatchCreationError(dispatch)
+        }
+      })
+  }
+}
 
 export function register() {
   return (dispatch, getState) => {

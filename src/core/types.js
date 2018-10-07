@@ -14,5 +14,6 @@ export default keyMirror({
   OPEN_LEFT_NAV: null,
   SET_PROVIDER: null,
   SET_ACCOUNT: null,
-  ACCOUNT_ADDRESSESS: null
+  ACCOUNT_ADDRESSESS: null,
+  BLOG_ARRAY: null
 })

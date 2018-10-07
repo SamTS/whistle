@@ -21,7 +21,10 @@ export function accountReducer(state = initialState, action) {
       return Object.assign({}, state, {
         accountArray: action.accountArray
       })
-
+    case constants.BLOG_ARRAY:
+      return Object.assign({}, state, {
+        blogArray: action.blogArray
+      })
     default:
       return state
   }

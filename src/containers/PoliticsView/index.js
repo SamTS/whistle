@@ -11,17 +11,20 @@ class PoliticsView extends Component {
 
     setTimeout(() => {
       actions.account.getAccounts()
+      actions.account.getBlogs()
     }, 2000)
   }
 
   createPending = (validated) => validated ? 'Validated' : 'Pending!'
 
-  createButton = (content1, content2, content3, index) => (
-    <Button className="politics-disclosure" key={index}>
+  createButton = (content1, content2, content3, index, content4) => (
+    <div className="politics-disclosure" key={index}>
+      <div>
+        {content4}
+      </div>
       <div>
         {content1}
       </div>
-      <span>&nbsp;&nbsp;</span>
       <div>
         {content2}
       </div>
@@ -29,24 +32,36 @@ class PoliticsView extends Component {
       <div>
         {content3}
       </div>
-    </Button>
+      <span>&nbsp;&nbsp;</span>
+      <span>---------------------------------</span>
+    </div>
   );
 
-  createPendingButton = (content, realData, validated, index) => (
-    this.createButton(this.createPending(validated), content, realData, index)
+  createPendingButton = (content, realData, validated, index, payload4) => (
+    this.createButton(this.createPending(validated), content, realData, index, payload4)
   );
 
   render() {
     const { account } = this.props
-    const { accountArray, id } = account
+    const { accountArray, blogArray } = account
 
     if (account && accountArray && accountArray[1] && accountArray[1].datePosted) {
       return (
         <div className="container">
-          {accountArray.map((payload, index) => this.createPendingButton(payload.datePosted.toString(), payload.realData, payload.verified, index))}
+          {accountArray.map((payload, index) => this.createPendingButton(payload.datePosted.toString(), payload.realData, payload.verified, index, payload.accountAddress))}
+        <span>&nbsp;&nbsp;</span>
+          {blogArray.map((payload, index) => this.createButton(payload.talker, payload.content, '', index))}
         </div>
       )
     }
+
+    // if (account && blogArray) {
+    //   return (
+    //     <div >
+    //       {blogArray.map((payload, index) => this.createButton(payload.talker, payload.content, '', index))}
+    //     </div>
+    //   )
+    // }
 
     return <div>.</div>
   }

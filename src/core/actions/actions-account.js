@@ -16,6 +16,52 @@ export function clear() {
   }
 }
 
+function dispatchBlogArray(blogArray, dispatch) {
+  dispatch((() => {
+    return {
+      type: constants.BLOG_ARRAY,
+      blogArray
+    }
+  })())
+}
+
+
+function runContractForBlogs(CryptoSourceContract, resolve) {
+  return new Promise(() => {
+    return CryptoSourceContract.deployed().then((poe) => {
+      const transferEvent = poe.postToBlog({}, {fromBlock: 0, toBlock: 'latest'})
+      transferEvent.get((error, validatedProofs) => {
+        // we have the logs, now print them
+        resolve(validatedProofs.map(data => data.args))
+      })
+    })
+  })
+  // .then((results) => {
+  //   const goodResults = results.map(result => result.args)
+  //   // if anyone has gotten to this comment, I am so sorry for this code
+  //   resolve(goodResults)
+  // })
+}
+
+export function getBlogs() {
+  return (dispatch, getState) => {
+    const { web3Provider } = getState().provider
+    const CryptoSourceContract = contract(CryptoSource)
+
+    CryptoSourceContract.setProvider(web3Provider.currentProvider)
+    CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
+
+    return new Promise((resolve, reject) => {
+      return runContractForBlogs(CryptoSourceContract, resolve, reject)
+    })
+      .then((blogArray) => {
+        if (blogArray) {
+          dispatchBlogArray(blogArray, dispatch)
+        }
+      })
+  }
+}
+
 function runContractForAccounts(CryptoSourceContract, resolve) {
   let cryptoSourceContractLive
   let accountList
@@ -96,7 +142,7 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
       })
       .then((results) => {
         const goodResults = results.map(result => result.args)
-        // if anyone has gotten to this comment, I am so sorry for this code
+        //if anyone has gotten to this comment, I am so sorry for this code
         finalResultsNice.map((finalResult) => {
           goodResults.forEach((goodLog) => {
             if (goodLog.dataHash === finalResult.proofHash) {

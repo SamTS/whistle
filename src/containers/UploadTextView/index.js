@@ -53,6 +53,9 @@ class UploadTextView extends Component {
     // actions.proof.addProof(enteredProof)
     console.log(enteredProof)
     // history.push('/')
+    debugger
+    const { actions } = this.props
+    actions.proof.validateProof(enteredProof)
   }
 
   render() {
@@ -112,5 +115,6 @@ UploadTextView.propTypes = {
 UploadTextView.defaultProps = {
   proof: null
 }
+
 
 export default withWidth()(withRouter(connect(mapStateToProps, mapDispatchToProps)(UploadTextView)))
