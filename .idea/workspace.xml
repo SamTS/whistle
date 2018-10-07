@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6daf0aa-1218-4cce-b633-5379057e9569" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/CryptoSource.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/CryptoSource.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/panels/GenerateHashPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/panels/GenerateHashPanel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/DesktopView/panels/GenerateHashPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/DesktopView/panels/GenerateHashPanel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/DesktopView/panels/RegisterProofPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/DesktopView/panels/RegisterProofPanel/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/actions/actions-account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/actions/actions-account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/actions/actions-proof.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/actions/actions-proof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/reducers/reducer-proof.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/reducers/reducer-proof.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,13 +42,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2705" />
+          <entry key="js" value="3390" />
           <entry key="sol" value="420" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2705" />
+          <entry key="JavaScript" value="3390" />
           <entry key="Solidity file" value="420" />
         </counts>
       </usages-collector>
@@ -113,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/actions/actions-account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="451">
+              <caret line="98" column="76" lean-forward="true" selection-start-line="98" selection-start-column="76" selection-end-line="98" selection-end-column="76" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -137,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contracts/CryptoSource.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+            <state relative-caret-position="-165">
+              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -169,8 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>provider</find>
-      <find>setprovider</find>
       <find>accountList</find>
       <find>sorry, this</find>
       <find>alreadyExists</find>
@@ -187,7 +179,6 @@
       <find>addproof</find>
       <find>CREATE_PROOF_HASH</find>
       <find>dispatchAssetCreated</find>
-      <find>web3</find>
       <find>checkIfRegistered</find>
       <find>register(</find>
       <find>registerProof</find>
@@ -198,7 +189,10 @@
       <find>signup</find>
       <find>TalkerAccount</find>
       <find>accounts</find>
+      <find>web3</find>
       <find>debugger</find>
+      <find>CryptoSource</find>
+      <find>finalResultsNice</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/core</dir>
@@ -218,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/core/reducers/reducer-account.js" />
         <option value="$PROJECT_DIR$/src/containers/PoliticsView/index.js" />
         <option value="$PROJECT_DIR$/src/containers/App/index.js" />
-        <option value="$PROJECT_DIR$/src/core/actions/actions-account.js" />
         <option value="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/DesktopView/panels/GenerateHashPanel/index.js" />
         <option value="$PROJECT_DIR$/src/containers/RegisterProofView/layouts/MobileView/panels/GenerateHashPanel/index.js" />
         <option value="$PROJECT_DIR$/src/containers/DisclosureFlow/layouts/DesktopView/panels/GenerateHashPanel/index.js" />
@@ -226,6 +219,7 @@
         <option value="$PROJECT_DIR$/src/core/reducers/reducer-proof.js" />
         <option value="$PROJECT_DIR$/src/core/actions/actions-proof.js" />
         <option value="$PROJECT_DIR$/contracts/CryptoSource.sol" />
+        <option value="$PROJECT_DIR$/src/core/actions/actions-account.js" />
       </list>
     </option>
   </component>
@@ -480,7 +474,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22785000" />
+    <option name="totallyTimeSpent" value="24771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="119" y="23" width="1546" height="954" extended-state="0" />
@@ -524,7 +518,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/core/actions/actions-account.js</url>
-          <line>28</line>
+          <line>29</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -742,16 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/actions/actions-account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/actions/actions-proof.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -764,8 +748,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contracts/CryptoSource.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        <state relative-caret-position="-165">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/actions/actions-account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="98" column="76" lean-forward="true" selection-start-line="98" selection-start-column="76" selection-end-line="98" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

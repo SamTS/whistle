@@ -22,6 +22,7 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
   let accountLengthList
   let proofHashList
   const hashAccountMap = {}
+  let finalResultsNice
   return new Promise(() => {
     CryptoSourceContract.deployed().then((poe) => {
       cryptoSourceContractLive = poe
@@ -71,11 +72,11 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
         })
         return Promise.all(promiseArray)
       })
-      .then((finalResults) => {
-        const finalResultsNice = finalResults.map((resultArray, index) => {
+      .then((proofedresults) => {
+        finalResultsNice = proofedresults.map((resultArray, index) => {
           const returnObject = {}
-          returnObject.datePosted = new Date(resultArray[0].toNumber()*1000)
-          returnObject.dateAfter = new Date(resultArray[1].toNumber()*1000)
+          returnObject.datePosted = new Date(resultArray[0].toNumber() * 1000)
+          returnObject.dateAfter = new Date(resultArray[1].toNumber() * 1000)
           returnObject.verified = resultArray[2]
           returnObject.proofHash = proofHashList[index]
           returnObject.accountAddress = hashAccountMap[proofHashList[index]]
@@ -83,13 +84,28 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
           return returnObject
         })
 
-        const transferEvent = cryptoSourceContractLive.AnnounceValidation({}, { fromBlock: 0, toBlock: 'latest' })
-        transferEvent.get((error, logs) => {
-          // we have the logs, now print them
-          logs.forEach(log => console.log(log.args))
-        })
-
         console.log('finalResultsNice', finalResultsNice)
+
+        const transferEvent = cryptoSourceContractLive.AnnounceValidation({}, {fromBlock: 0, toBlock: 'latest'})
+        return new Promise((subResolve) => {
+          transferEvent.get((error, validatedProofs) => {
+            // we have the logs, now print them
+            subResolve(validatedProofs)
+          })
+        })
+      })
+      .then((results) => {
+        const goodResults = results.map(result => result.args)
+        // if anyone has gotten to this comment, I am so sorry for this code
+        finalResultsNice.map((finalResult) => {
+          goodResults.forEach((goodLog) => {
+            if (goodLog.dataHash === finalResult.proofHash) {
+              finalResult.realData = goodLog.data
+            }
+          })
+          return finalResult
+        })
+        console.log('premature results', goodResults, finalResultsNice)
         resolve(finalResultsNice)
       })
   })
