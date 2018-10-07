@@ -31,7 +31,6 @@ class App extends Component {
     if (typeof window.web3 !== 'undefined') {
       const { currentProvider } = window.web3
       const web3Provider = new Web3(currentProvider)
-      debugger
       actions.provider.setProvider(web3Provider)
     }
 
