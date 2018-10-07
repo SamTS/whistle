@@ -4,7 +4,7 @@ Allow whistleblowers to demonstrate their value without giving away who they are
 #How to deploy
 Have Truffle, ganache-cli, yarn (or npm), and meta mask installed
 
-``Clone the Repo``
+Clone the Repo and enter it, then simply:
 
 ``yarn install``
 
