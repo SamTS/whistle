@@ -26,6 +26,11 @@ class AddMenu extends Component {
     })
   }
 
+  goToBloom = () => {
+    const { history } = this.props
+    history.push('/bloom')
+  }
+
   goToProofRegistration = () => {
     const { history } = this.props
     history.push('/register?panel=1')
@@ -78,17 +83,13 @@ class AddMenu extends Component {
         <div>
           <AppBar>
             <Toolbar>
-              {/* {closeIcon} */}
-              {/* <Typography variant="title" color="inherit">
-                Upload Your Digital Asset
-              </Typography> */}
               <h2 className="toolbar-header">Establish Credibility</h2>
             </Toolbar>
             <Button
               variant="contained"
               color="primary"
               className="stretched-button"
-              onClick={this.close}
+              onClick={this.goToBloom}
             >
               Bloom
             </Button>

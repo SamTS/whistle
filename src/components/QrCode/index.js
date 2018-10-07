@@ -4,7 +4,8 @@ import { RequestQRCode } from '@bloomprotocol/share-kit'
 const QrCode = () => {
   const requestData = {
     action: 'request_attestation_data',
-    url: 'https://localhost/qrresponse', // use ngrok
+    token: 'yolo',
+    url: 'https://44863887.ngrok.io/bloom', // use ngrok
     org_logo_url: 'https://bloom.co/images/notif/bloom-logo.png', // TODO: change this to our logo
     org_name: 'Crytpo Source',
     org_usage_policy_url: 'https://bloom.co/legal/terms', // don't need to change these, dummy for POC
