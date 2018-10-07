@@ -49,11 +49,6 @@ class UploadTextView extends Component {
 
   proceed = () => {
     const { enteredProof } = this.state
-    // const { actions, history } = this.props
-    // actions.proof.addProof(enteredProof)
-    console.log(enteredProof)
-    // history.push('/')
-    debugger
     const { actions } = this.props
     actions.proof.validateProof(enteredProof)
   }

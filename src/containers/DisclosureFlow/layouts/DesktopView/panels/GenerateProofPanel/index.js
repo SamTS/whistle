@@ -30,8 +30,6 @@ class GenerateProofPanel extends Component {
   }
 
   proceed = () => {
-    debugger
-
     const { disclosure } = this.state
     const { actions, history } = this.props
 
