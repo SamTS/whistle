@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter }       from 'react-router-dom'
+import { withRouter, Link }       from 'react-router-dom'
 import { styles }           from './styles.scss'
 
 class SuccessPanel extends Component {
@@ -8,6 +8,7 @@ class SuccessPanel extends Component {
       <div className={styles}>
         <div className="notification">
           <h2>Congratulations! Your proof was successfully timestamped.</h2>
+          <Link to="/">Go back home</Link>
         </div>
       </div>
     )
