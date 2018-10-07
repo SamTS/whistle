@@ -53,7 +53,7 @@ class MobileView extends Component {
       case 1:
         return 'Your Credentials'
       case 2:
-        return 'Enter Your Proof'
+        return 'Enter Your Message'
       case 3:
         return 'Generate Hash'
       case 4:

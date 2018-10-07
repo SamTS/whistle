@@ -25,7 +25,7 @@ class CredentialsPanel extends Component {
 
     return (
       <div className={styles}>
-        <h2>We retrieved your public key from MetaMask!</h2>
+        <h2>OK, we retrieved your public key from MetaMask which we need.</h2>
         <p>A public key is an anonymous signature that can be used to identify
         a timestamp on a blockchain.
         </p>

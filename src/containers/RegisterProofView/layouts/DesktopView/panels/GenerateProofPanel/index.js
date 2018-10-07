@@ -16,7 +16,8 @@ class GenerateProofPanel extends Component {
     super(props)
     this.state = {
       enteredProof: '',
-      nextBtnDisabled: false
+      nextBtnDisabled: false,
+      prevDisabled: false
     }
   }
 
@@ -36,7 +37,7 @@ class GenerateProofPanel extends Component {
   }
 
   render() {
-    const { enteredProof, nextBtnDisabled } = this.state
+    const { enteredProof, nextBtnDisabled, prevDisabled } = this.state
 
     return (
       <div className={styles}>
@@ -53,7 +54,7 @@ class GenerateProofPanel extends Component {
           </div>
         </Form>
         <Controls
-          prevDisabled
+          prevDisabled={prevDisabled}
           nextDisabled={nextBtnDisabled}
           handleNext={this.proceed}
         />

@@ -22,7 +22,7 @@ class RegisterProofPanel extends Component {
     const { proof } = nextProps
     if (proof.transaction) {
       const { history } = this.props
-      history.push('/register?panel=5')
+      history.push('/register?panel=6')
     }
   }
 

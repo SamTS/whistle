@@ -48,7 +48,7 @@ class GenerateHashPanel extends Component {
 
   proceed = () => {
     const { history } = this.props
-    history.push('/register?panel=4')
+    history.push('/register?panel=5')
   }
 
   render() {
