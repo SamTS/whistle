@@ -17,6 +17,7 @@ import UploadView                   from 'containers/UploadView'
 import RegisterProofView            from 'containers/RegisterProofView'
 import DisclosureFlow            from 'containers/DisclosureFlow'
 import * as providerActionCreators  from 'core/actions/actions-provider'
+import * as accountActionCreators  from 'core/actions/actions-account'
 import NormalLayoutRoute            from './layouts/NormalLayoutRoute'
 import RegistrationLayoutRoute      from './layouts/RegistrationLayoutRoute'
 import MetaMaskNotification         from './components/MetaMaskNotification'
@@ -30,8 +31,11 @@ class App extends Component {
     if (typeof window.web3 !== 'undefined') {
       const { currentProvider } = window.web3
       const web3Provider = new Web3(currentProvider)
+      debugger
       actions.provider.setProvider(web3Provider)
     }
+
+    actions.account.getAccounts()
   }
 
   render() {
@@ -57,7 +61,8 @@ class App extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      provider: bindActionCreators(providerActionCreators, dispatch)
+      provider: bindActionCreators(providerActionCreators, dispatch),
+      account: bindActionCreators(accountActionCreators, dispatch)
     }
   }
 }

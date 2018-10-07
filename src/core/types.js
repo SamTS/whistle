@@ -13,5 +13,6 @@ export default keyMirror({
   CLOSE_CONFIRM_MODAL: null,
   OPEN_LEFT_NAV: null,
   SET_PROVIDER: null,
-  SET_ACCOUNT: null
+  SET_ACCOUNT: null,
+  ACCOUNT_ADDRESSESS: null
 })

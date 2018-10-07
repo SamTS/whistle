@@ -84,7 +84,6 @@ contract CryptoSource {
     return proofs[assetHash];
   }
 
-
   function getAccountsLength()
   public
   constant //change to view

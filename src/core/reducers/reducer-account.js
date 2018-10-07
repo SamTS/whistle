@@ -2,7 +2,8 @@ import constants from 'core/types'
 
 const initialState = {
   email: '',
-  id: null
+  id: null,
+  accountArray: []
 }
 
 export function accountReducer(state = initialState, action) {
@@ -15,6 +16,11 @@ export function accountReducer(state = initialState, action) {
     case constants.CLEAR_ACCOUNT:
       return Object.assign({}, state, {
         email: ''
+      })
+    case constants.ACCOUNT_ADDRESSESS:
+      debugger
+      return Object.assign({}, state, {
+        accountArray: action.accountArray
       })
 
     default:
