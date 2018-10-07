@@ -47,9 +47,10 @@ class DownloadMessagePanel extends Component {
     return (
       <div className={styles}>
         <h2>You must download and save the message you just entered.</h2>
-        <p>You will need the <em>exact</em> message you just entered to prove your
+        <p>You will need to upload the <em>exact</em> message you just entered to prove your
         credibility in the future.
         </p>
+        <p>Download the message you entered now and save it in a secure place.</p>
         <DownloadIcon className="download-icon" onClick={this.download} />
         {this.getControls()}
       </div>

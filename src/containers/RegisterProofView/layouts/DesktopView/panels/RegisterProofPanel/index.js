@@ -38,8 +38,12 @@ class RegisterProofPanel extends Component {
 
     return (
       <div className={styles}>
-        <h2>Confirm Transaction</h2>
-        <span>Summary of your information</span>
+        <h2>Confirm Your Timestamp</h2>
+        <p>The following data is about to get time stamped on the blockchain.</p>
+        <p>The text file you download in step #3 matches the hash below.</p>
+        <p>Remember, you will have to upload your text file in the future after the claim
+        in your encrypted message becomes true
+        </p>
         <div id="registration-details">
           <ul>
             <li>

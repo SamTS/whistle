@@ -60,14 +60,17 @@ class GenerateHashPanel extends Component {
       content = (
         <div className="notification">
           <h2>Sorry, this hash has already been timestamped!</h2>
-          <span className="action"><Link to="/home">Upload a new proof</Link></span>
+          <span className="action"><Link to="/home">Upload a new message</Link></span>
         </div>
       )
     } else if (proofHash) {
       content = (
         <div>
-          <h2>Unique hash (SHA-256) of your proof</h2>
-          <span>Click Next to register your proof</span>
+          <h2>Unique hash (SHA-256) of your message</h2>
+          <p>The following is a SHA-256 of your message.</p>
+          <p>This unique hash of your message, plus your public key, will be timestamped
+          on the blockchain
+          </p>
           <div id="unique-hash">{proofHash}</div>
         </div>
       )
