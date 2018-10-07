@@ -1,6 +1,7 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
 var mnemonic = "water filter end saddle pride yellow patient evolve hill fold essence holiday";
+var apiKey = "15284e02237e4dc0bc24f8a63400e3c1"
 
 module.exports = {
   migrations_directory: "./migrations",
@@ -11,10 +12,10 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     rinkeby: {
-      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io'),
+      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/1' + apiKey),
       network_id: '*',
-      gas: 4500000,
-      gasPrice: 25000000000
+      gas:  6700000,
+      gasPrice: 10000000000
     }
   }
 };
