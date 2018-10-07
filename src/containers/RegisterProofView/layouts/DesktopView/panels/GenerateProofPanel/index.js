@@ -8,6 +8,9 @@ import { Form, Label }          from 'components/Form'
 import Controls                 from '../../components/Controls'
 import { styles }               from './styles.scss'
 
+/* eslint-disable */
+const placeholder = 'Example: Soon, VW will release a new quarterly report. The first word of the first 5 pages are “Welcome”, “For”, “We”, “After”, “Together.'
+
 class GenerateProofPanel extends Component {
   constructor(props) {
     super(props)
@@ -37,13 +40,16 @@ class GenerateProofPanel extends Component {
 
     return (
       <div className={styles}>
-        <h2>Enter Your Proof Of Credibility</h2>
-        <p>Can you prove you know something to verify your credibility as an insider?</p>
-
+        <h2>Enter an encrypted message.</h2>
+        <p>The message you're about to enter will be timestamped and encrypted on the blockchain.</p>
+        <p>No one will be able to decipher this on the public blockchain.</p>
+        <p>If your message includes a claim that becomes true in the future, you can prove you knew this
+        information in advance.
+        </p>
         <Form>
           <div className="form-section">
-            <Label text="Enter your proof" />
-            <textarea autoFocus onChange={this.onEnter} value={enteredProof} />
+            <Label text="Enter your message" />
+            <textarea autoFocus placeholder={placeholder} onChange={this.onEnter} value={enteredProof} />
           </div>
         </Form>
         <Controls
