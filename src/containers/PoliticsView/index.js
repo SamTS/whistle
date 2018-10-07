@@ -46,11 +46,12 @@ class PoliticsView extends Component {
     const { accountArray, blogArray } = account
 
 
-    if (account && accountArray && accountArray[1] && accountArray[1].datePosted) {
+    if (account && accountArray) {
       return (
         <div className="container">
+        <span>______PROOFS______</span>
           {accountArray.map((payload, index) => this.createPendingButton(payload.datePosted.toString(), payload.realData, payload.verified, index, payload.accountAddress))}
-        <span>&nbsp;&nbsp;</span>
+        <span>______DECLERATIONS______</span>
           {blogArray.map((payload, index) => this.createButton(payload.talker, payload.content, '', index))}
         </div>
       )

@@ -167,6 +167,7 @@ function dispatchAccountsGathered(accountArray, dispatch) {
 }
 
 export function getAccounts() {
+  debugger
   return (dispatch, getState) => {
     const { web3Provider } = getState().provider
     const CryptoSourceContract = contract(CryptoSource)
