@@ -13,7 +13,8 @@ export function proofReducer(state = initialState, action) {
   switch (action.type) {
     case constants.ADD_PROOF:
       return Object.assign({}, state, {
-        stagedProof: action.proof
+        stagedProof: action.proof,
+        proofHash: action.proofHash
       })
 
     case constants.CREATE_PROOF_HASH:

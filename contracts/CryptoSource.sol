@@ -33,33 +33,22 @@ contract CryptoSource {
     string content
   );
 
-  //overly simple dummy function, for now
-  function signUp()
-  public
-  {
-    //todo there must be a nicer way to do this
-    if(!accounts[msg.sender].exists){
-
-      accountList.push(msg.sender);
-
-      TalkerAccount storage emptyAccount;
-      emptyAccount.exists = true;
-      accounts[msg.sender] = emptyAccount;
-    }
-  }
-
   //sets up a prediction by adding the hash
   function registerProof(bytes32 _dataHash, uint _dateAfter)
   public
   {
     require(!checkIfRegistered(_dataHash));
-    signUp();
 
     proofs[_dataHash] = true;
     Proof memory newProof = Proof(block.timestamp, _dateAfter, false);
 
     accounts[msg.sender].proofs[_dataHash] = newProof;
     accounts[msg.sender].proofList.push(_dataHash);
+
+    if(!accounts[msg.sender].exists){
+      accounts[msg.sender].exists = true;
+      accountList.push(msg.sender);
+    }
   }
 
   //sets up the data by

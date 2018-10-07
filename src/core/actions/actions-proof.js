@@ -4,15 +4,16 @@ import CryptoSource from 'contracts/CryptoSource.json'
 import sha256       from 'sha256'
 
 export function addProof(proof) {
+  const proofHash = window.web3.sha3(proof)
   return {
     type: constants.ADD_PROOF,
-    proof
+    proof,
+    proofHash
   }
 }
 
 function checkIfProofRegistered(CryptoSourceContract, proofHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
-    debugger
     return poe.checkIfRegistered(proofHash)
   })
     .then((exists) => {
@@ -109,6 +110,8 @@ export function checkIfRegistered(assetUrl) {
       })
   }
 }
+
+//window.web3.sha3
 
 export function register() {
   return (dispatch, getState) => {

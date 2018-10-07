@@ -21,7 +21,7 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
   let accountList
   let accountLengthList
   let proofHashList
-  let hashAccountMap = {}
+  const hashAccountMap = {}
   return new Promise(() => {
     CryptoSourceContract.deployed().then((poe) => {
       cryptoSourceContractLive = poe
