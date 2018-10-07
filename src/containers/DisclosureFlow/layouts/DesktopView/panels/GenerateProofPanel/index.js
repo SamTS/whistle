@@ -34,7 +34,7 @@ class GenerateProofPanel extends Component {
     const { enteredProof } = this.state
     const { actions, history } = this.props
     actions.proof.addProof(enteredProof)
-    history.push('/register?panel=3')
+    history.push('/disclosure?panel=3')
   }
 
   render() {

@@ -16,7 +16,7 @@ class CredentialsPanel extends Component {
 
   proceed = () => {
     const { history } = this.props
-    history.push('/register?panel=2')
+    history.push('/disclosure?panel=2')
   }
 
   render() {

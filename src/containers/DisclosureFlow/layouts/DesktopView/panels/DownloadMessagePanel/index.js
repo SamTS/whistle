@@ -40,7 +40,7 @@ class DownloadMessagePanel extends Component {
 
   proceed = () => {
     const { history } = this.props
-    history.push('/register?panel=4')
+    history.push('/disclosure?panel=4')
   }
 
   render() {

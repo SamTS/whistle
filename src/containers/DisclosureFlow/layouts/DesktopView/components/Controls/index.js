@@ -13,7 +13,7 @@ class Controls extends Component {
   handlePrev = () => {
     const { history, location } = this.props
     const currentPanel = parseInt(location.search.substr(1).split('=')[1], 10)
-    history.push(`/register?panel=${currentPanel - 1}`)
+    history.push(`/disclosure?panel=${currentPanel - 1}`)
   }
 
   render() {

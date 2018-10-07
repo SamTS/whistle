@@ -3,9 +3,6 @@ import PropTypes            from 'prop-types'
 import Stepper              from 'components/Steppers'
 import CredentialsPanel     from './panels/CredentialsPanel'
 import GenerateProofPanel   from './panels/GenerateProofPanel'
-import DownloadMessagePanel from './panels/DownloadMessagePanel'
-import GenerateHashPanel    from './panels/GenerateHashPanel'
-import RegisterProofPanel   from './panels/RegisterProofPanel'
 import SuccessPanel         from './panels/SuccessPanel'
 import { styles }           from './styles.scss'
 
@@ -19,12 +16,6 @@ class DesktopView extends Component {
       case 2:
         return <GenerateProofPanel />
       case 3:
-        return <DownloadMessagePanel />
-      case 4:
-        return <GenerateHashPanel />
-      case 5:
-        return <RegisterProofPanel />
-      case 6:
         return <SuccessPanel />
       default:
         break
@@ -44,10 +35,7 @@ class DesktopView extends Component {
               activeStep={panel - 1}
               steps={[
                 'Your Public Key',
-                'Enter Your Message',
-                'Download Your Message',
-                'Generate Timestamp',
-                'Register Timestamp'
+                'Enter Your Message'
               ]}
             />
             <div id="registration-form">{this.renderContent()}</div>

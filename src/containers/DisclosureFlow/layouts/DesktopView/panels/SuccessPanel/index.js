@@ -7,7 +7,7 @@ class SuccessPanel extends Component {
     return (
       <div className={styles}>
         <div className="notification">
-          <h2>Congratulations! Your proof was successfully timestamped.</h2>
+          <h2>Congratulations! Whistle blown!</h2>
         </div>
       </div>
     )
