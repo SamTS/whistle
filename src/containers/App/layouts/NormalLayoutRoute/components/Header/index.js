@@ -3,12 +3,12 @@ import PropTypes            from 'prop-types'
 import { withRouter }       from 'react-router-dom'
 import AppBar               from 'components/AppBar'
 import Typography           from 'components/Typography'
+import cryptoSourceLogo     from 'assets/svgs/cryptosource-logo.svg'
 import Toolbar              from '@material-ui/core/Toolbar'
 import IconButton           from '@material-ui/core/IconButton'
 import Menu                 from '@material-ui/core/Menu'
 import MenuItem             from '@material-ui/core/MenuItem'
 import AccountCircle        from '@material-ui/icons/AccountCircle'
-import { appConfig }        from 'configs/config-main'
 import Navigation           from './components/Navigation'
 import { styles }           from './styles.scss'
 
@@ -71,7 +71,7 @@ class Header extends Component {
         <AppBar>
           <Toolbar>
             <Typography variant="title" color="inherit">
-              {appConfig.name}
+              <img alt="Crypto Source logo" id="main-logo" src={cryptoSourceLogo} />
             </Typography>
             {menu}
           </Toolbar>
