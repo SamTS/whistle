@@ -4,6 +4,7 @@ import { connect }                  from 'react-redux'
 import { bindActionCreators }       from 'redux'
 import * as proofActionCreators     from 'core/actions/actions-proof'
 import withWidth, { isWidthUp }     from '@material-ui/core/withWidth'
+import Slide                        from '@material-ui/core/Slide'
 import DesktopView                  from './layouts/DesktopView'
 import MobileView                   from './layouts/MobileView'
 import { styles }                   from './styles.scss'
@@ -26,9 +27,11 @@ class RegisterProofView extends Component {
 
   render() {
     return (
-      <div className={styles}>
-        {this.renderView()}
-      </div>
+      <Slide direction="left" in mountOnEnter unmountOnExit>
+        <div className={styles}>
+          {this.renderView()}
+        </div>
+      </Slide>
     )
   }
 }
