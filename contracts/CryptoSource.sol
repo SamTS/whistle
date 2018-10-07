@@ -37,11 +37,15 @@ contract CryptoSource {
   function signUp()
   public
   {
-    require(!accounts[msg.sender].exists);
+    //todo there must be a nicer way to do this
+    if(!accounts[msg.sender].exists){
 
-    TalkerAccount storage emptyAccount;
-    emptyAccount.exists = true;
-    accounts[msg.sender] = emptyAccount;
+      accountList.push(msg.sender);
+
+      TalkerAccount storage emptyAccount;
+      emptyAccount.exists = true;
+      accounts[msg.sender] = emptyAccount;
+    }
   }
 
   //sets up a prediction by adding the hash
@@ -49,6 +53,8 @@ contract CryptoSource {
   public
   {
     require(!checkIfRegistered(_dataHash));
+    signUp();
+
     proofs[_dataHash] = true;
     Proof memory newProof = Proof(block.timestamp, _dateAfter, false);
 

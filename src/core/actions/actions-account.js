@@ -18,8 +18,10 @@ export function clear() {
 
 function runContractForAccounts(CryptoSourceContract, resolve) {
   let cryptoSourceContractLive
-  // let accountList
-  // let accountLengthList
+  let accountList
+  let accountLengthList
+  let proofHashList
+  let hashAccountMap = {}
   return new Promise(() => {
     CryptoSourceContract.deployed().then((poe) => {
       cryptoSourceContractLive = poe
@@ -27,13 +29,68 @@ function runContractForAccounts(CryptoSourceContract, resolve) {
     })
       .then((accountLength) => {
         const promiseArray = []
-        for (let i = 0; i < accountLength; i++) {
+        for (let i = 0; i < accountLength.toNumber(); i++) {
           promiseArray.push(cryptoSourceContractLive.getSpecificAccount(i))
         }
         return Promise.all(promiseArray)
       })
-      .then((accountArray) => {
-        resolve(accountArray)
+      // .then((accountArray) => {
+      //   resolve(accountArray)
+      // })
+      .then((arrayAccount) => {
+        const promiseArray = []
+        accountList = arrayAccount
+        arrayAccount.forEach((account) => {
+          promiseArray.push(cryptoSourceContractLive.getProofLengthForAccount(account))
+        })
+        return Promise.all(promiseArray)
+      })
+      .then((arrayLengths) => {
+        const goodArrayLengths = arrayLengths.map((bigNumber) => bigNumber.toNumber())
+        const promiseArray = []
+        accountLengthList = goodArrayLengths
+        goodArrayLengths.forEach((accountProofLength, accountIndex) => {
+          for (let i = 0; i < accountProofLength; i++) {
+            promiseArray.push(cryptoSourceContractLive.getProofHashFromIndexAccount(i, accountList[accountIndex]))
+          }
+        })
+        return Promise.all(promiseArray)
+      })
+      .then((proofHashes) => {
+        console.log(proofHashes)
+        proofHashList = proofHashes
+
+        const promiseArray = []
+        let superIndex = 0
+        accountLengthList.forEach((accountLength, accountIndex) => {
+          for (let i = 0; i < accountLength; i++) {
+            promiseArray.push(cryptoSourceContractLive.getProofInfoFromHashAccount(proofHashes[superIndex], accountList[accountIndex]))
+            hashAccountMap[proofHashes[superIndex]] = accountList[accountIndex]
+            superIndex++
+          }
+        })
+        return Promise.all(promiseArray)
+      })
+      .then((finalResults) => {
+        const finalResultsNice = finalResults.map((resultArray, index) => {
+          const returnObject = {}
+          returnObject.datePosted = new Date(resultArray[0].toNumber()*1000)
+          returnObject.dateAfter = new Date(resultArray[1].toNumber()*1000)
+          returnObject.verified = resultArray[2]
+          returnObject.proofHash = proofHashList[index]
+          returnObject.accountAddress = hashAccountMap[proofHashList[index]]
+
+          return returnObject
+        })
+
+        const transferEvent = cryptoSourceContractLive.AnnounceValidation({}, { fromBlock: 0, toBlock: 'latest' })
+        transferEvent.get((error, logs) => {
+          // we have the logs, now print them
+          logs.forEach(log => console.log(log.args))
+        })
+
+        console.log('finalResultsNice', finalResultsNice)
+        resolve(finalResultsNice)
       })
   })
 }

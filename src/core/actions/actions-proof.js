@@ -12,6 +12,7 @@ export function addProof(proof) {
 
 function checkIfProofRegistered(CryptoSourceContract, proofHash, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
+    debugger
     return poe.checkIfRegistered(proofHash)
   })
     .then((exists) => {
