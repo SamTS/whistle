@@ -51,25 +51,8 @@ class AddMenu extends Component {
     history.push('/politics')
   }
 
-  registerProof=(proof) => {
-    const {
-      actions,
-      history,
-      provider
-    } = this.props
-
-    if (provider.web3Provider !== null) {
-      actions.proof.addAsset(proof)
-      history.push('/register?panel=1')
-    } else {
-      actions.ui.openModal({ modalKey: 'install-metamask-modal' })
-    }
-  }
-
   render() {
-    // const { ui, width } = this.props
     const { ui } = this.props
-    // const closeIcon = isWidthUp('md', width) ? <CloseIcon /> : <ArrowBackIcon />
 
     return (
       <StandardModal

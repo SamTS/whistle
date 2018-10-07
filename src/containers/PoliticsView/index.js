@@ -3,6 +3,7 @@ import PropTypes                   from 'prop-types'
 import { connect }                 from 'react-redux'
 import { bindActionCreators }      from 'redux'
 import * as accountActionCreators  from 'core/actions/actions-account'
+import Button                      from 'components/Button'
 
 class PoliticsView extends Component {
   componentWillMount() {
@@ -13,12 +14,36 @@ class PoliticsView extends Component {
     }, 2000)
   }
 
-  render() {
-    return (
-      <div className="container">
-        Politics-related proofs
+  createPending = () => 'Pending! '
+
+  createButton = (content1, content2) => (
+    <Button className="politics-disclosure">
+      <div>
+        {content1}
       </div>
-    )
+      <div>
+        {content2}
+      </div>
+    </Button>
+  );
+
+  createPendingButton = content => (
+    this.createButton(this.createPending(), content)
+  );
+
+  render() {
+    const { account } = this.props
+    const { accountArray } = account
+
+    if (account && accountArray && accountArray[1] && accountArray[1].datePosted) {
+      return (
+        <div className="container">
+          {accountArray.map(payload => this.createPendingButton(payload.datePosted.toString()))}
+        </div>
+      )
+    }
+
+    return <div>.</div>
   }
 }
 
@@ -38,7 +63,8 @@ function mapStateToProps(state) {
 }
 
 PoliticsView.propTypes = {
-  actions: PropTypes.shape({}).isRequired
+  actions: PropTypes.shape({}).isRequired,
+  account: PropTypes.shape({}).isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PoliticsView)
