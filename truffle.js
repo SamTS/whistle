@@ -12,7 +12,7 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     rinkeby: {
-      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/1' + apiKey),
+      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/' + apiKey),
       network_id: '*',
       gas:  6700000,
       gasPrice: 10000000000
