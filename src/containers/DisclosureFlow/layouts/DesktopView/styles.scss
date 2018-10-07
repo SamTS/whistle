@@ -1,0 +1,37 @@
+:local(.styles) {
+  margin: 70px  auto;
+  max-width: 1200px;
+
+  #registration-form-container {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 378px;
+    margin-top: -80px;
+
+    svg {
+      zoom: 1.6;
+    }
+  }
+
+  #registration-form-container {
+    width: 100%;
+
+    #registration-form {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      background-color: $beige;
+      border-radius: $radius;
+
+      h2 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      form {
+        margin-top: 30px;
+      }
+    }
+  }
+}
