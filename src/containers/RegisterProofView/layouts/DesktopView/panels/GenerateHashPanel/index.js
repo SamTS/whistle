@@ -84,7 +84,7 @@ class GenerateHashPanel extends Component {
     } else if (proof.stagedProof) {
       content = (
         <div>
-          <h2>Generating a unique hash of your proof...</h2>
+          <h2>Generating a unique hash of your message...</h2>
           <div id="hash-progress-indicator">
             <ProgressIndicator type="linear" />
             <span className="blink-me">Please hold on...</span>
@@ -94,8 +94,8 @@ class GenerateHashPanel extends Component {
     } else {
       content = (
         <div className="notification">
-          <h2>Please upload a proof to timestamp</h2>
-          <span className="action"><Link to="/home">Upload a proof</Link></span>
+          <h2>Please enter a message to timestamp</h2>
+          <span className="action"><Link to="/home">Enter a new message</Link></span>
         </div>
       )
     }
