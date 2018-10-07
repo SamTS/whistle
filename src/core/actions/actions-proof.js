@@ -23,9 +23,9 @@ function checkIfProofRegistered(CryptoSourceContract, proofHash, resolve, reject
     })
 }
 
-function registerProof(CryptoSourceContract, proofHash, resolve, reject) {
+function registerProof(CryptoSourceContract, proofHash, date, resolve, reject) {
   CryptoSourceContract.deployed().then((poe) => {
-    return poe.registerProof(proofHash)
+    return poe.registerProof(proofHash, date)
   })
     .then((result) => {
       const transaction = (result !== null) ? result : null
@@ -119,7 +119,7 @@ export function register() {
     CryptoSourceContract.defaults({ from: web3Provider.eth.defaultAccount })
 
     return new Promise((resolve, reject) => {
-      registerProof(CryptoSourceContract, proofHash, resolve, reject)
+      registerProof(CryptoSourceContract, proofHash, '0', resolve, reject)
     })
       .then((transaction) => {
         if (transaction) {
