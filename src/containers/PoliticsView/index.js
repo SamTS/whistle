@@ -15,7 +15,9 @@ class PoliticsView extends Component {
 
   render() {
     return (
-      <div className="container">Politics-related proofs</div>
+      <div className="container">
+        Politics-related proofs
+      </div>
     )
   }
 }

@@ -1,0 +1,28 @@
+:local(.modalStyles) {
+  height: 100%;
+  box-shadow: none;
+  overflow: hidden;
+
+  .bottom-navigation {
+    position: absolute;
+  }
+
+  .arrow-icon {
+    margin-left: -10px;
+  }
+
+  .bottom-section {
+    position: relative;
+    top: 50px;
+  }
+
+  .bloom-qr {
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    width: 600px;
+    height: 475px;
+  }
+}

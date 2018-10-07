@@ -14,6 +14,8 @@ import PoliticsView                 from 'containers/PoliticsView'
 import BusinessView                 from 'containers/BusinessView'
 import EthicsView                   from 'containers/EthicsView'
 import UploadView                   from 'containers/UploadView'
+import BloomView                   from 'containers/BloomView'
+import AddMenu                   from 'containers/AddMenu'
 import RegisterProofView            from 'containers/RegisterProofView'
 import DisclosureFlow            from 'containers/DisclosureFlow'
 import * as providerActionCreators  from 'core/actions/actions-provider'
@@ -44,6 +46,8 @@ class App extends Component {
             <NormalLayoutRoute path="/business" component={BusinessView} />
             <NormalLayoutRoute path="/ethics" component={EthicsView} />
             <NormalLayoutRoute path="/upload" component={UploadView} />
+            <NormalLayoutRoute path="/addMenu" component={AddMenu} />
+            <NormalLayoutRoute path="/bloom" component={BloomView} />
             <RegistrationLayoutRoute path="/register" component={RegisterProofView} />
             <RegistrationLayoutRoute path="/disclosure" component={DisclosureFlow} />
             <Redirect from="/" to="/politics" />
