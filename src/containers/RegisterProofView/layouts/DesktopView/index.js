@@ -46,8 +46,8 @@ class DesktopView extends Component {
                 'Your Public Key',
                 'Enter Your Message',
                 'Download Your Message',
-                'Generate Hash',
-                'Timestamp It'
+                'Generate Timestamp',
+                'Register Timestamp'
               ]}
             />
             <div id="registration-form">{this.renderContent()}</div>

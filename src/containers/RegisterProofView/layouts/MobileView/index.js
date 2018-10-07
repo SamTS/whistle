@@ -55,7 +55,7 @@ class MobileView extends Component {
       case 2:
         return 'Enter Your Message'
       case 3:
-        return 'Generate Hash'
+        return 'Generate TimeStamp'
       case 4:
         return 'Confirm Transaction'
       case 5:
