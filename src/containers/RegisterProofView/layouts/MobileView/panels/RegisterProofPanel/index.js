@@ -3,36 +3,38 @@ import PropTypes                from 'prop-types'
 import { connect }              from 'react-redux'
 import { bindActionCreators }   from 'redux'
 import { withRouter }           from 'react-router-dom'
-import * as assetActionCreators from 'core/actions/actions-proof'
+import * as proofActionCreators from 'core/actions/actions-proof'
 import Controls                 from '../../components/Controls'
 import { styles }               from './styles.scss'
 
-class RegisterAssetPanel extends Component {
+class RegisterProofPanel extends Component {
   constructor(props) {
     super(props)
-    const { email, id } = props.account
-    const { proofHash } = props.asset
+    const { id } = props.account
+    const { proofHash } = props.proof
 
     this.state = {
-      nextBtnDisabled: !((email && id && proofHash))
+      nextBtnDisabled: !((id && proofHash))
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.asset.transaction) {
+    const { proof } = nextProps
+
+    if (proof.transaction) {
       const { history } = this.props
       history.push('/register?panel=4')
     }
   }
 
-  registerAsset = () => {
+  registerProof = () => {
     const { actions } = this.props
-    actions.asset.register()
+    actions.proof.register()
   }
 
   render() {
     const { id, email } = this.props.account
-    const { proofHash } = this.props.asset
+    const { proofHash } = this.props.proof
     const { nextBtnDisabled } = this.state
 
     return (
@@ -58,43 +60,42 @@ class RegisterAssetPanel extends Component {
           prevDisabled={false}
           nextDisabled={nextBtnDisabled}
           nextLabel="Register"
-          handleNext={this.registerAsset}
+          handleNext={this.registerProof}
         />
       </div>
     )
   }
 }
 
-RegisterAssetPanel.propTypes = {
+RegisterProofPanel.propTypes = {
   account: PropTypes.shape({
     email: PropTypes.string,
     id: PropTypes.string
   }).isRequired,
   actions: PropTypes.shape({}).isRequired,
-  asset: PropTypes.shape({
-    proofHash: PropTypes.string,
-    transaction: PropTypes.string
+  proof: PropTypes.shape({
+    proofHash: PropTypes.string
   }),
   history: PropTypes.shape({}).isRequired
 }
 
-RegisterAssetPanel.defaultProps = {
-  asset: null
+RegisterProofPanel.defaultProps = {
+  proof: null
 }
 
 function mapStateToProps(state) {
   return {
     account: state.account,
-    asset: state.asset
+    proof: state.proof
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      asset: bindActionCreators(assetActionCreators, dispatch)
+      proof: bindActionCreators(proofActionCreators, dispatch)
     }
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RegisterAssetPanel))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RegisterProofPanel))

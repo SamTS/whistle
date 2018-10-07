@@ -10,33 +10,13 @@ class CredentialsPanel extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      allowToProceed: false,
-      nextBtnDisabled: true
-    }
-  }
-
-  onEnter = (evt) => {
-    if (evt.key === 'Enter') {
-      const { allowToProceed } = this.state
-      if (allowToProceed) { this.proceed() }
+      nextBtnDisabled: false
     }
   }
 
   proceed = () => {
     const { history } = this.props
-
     history.push('/register?panel=2')
-  }
-
-  enableNext=(input) => {
-    const { asset } = this.props
-
-    if (input.valid && asset.stagedAsset) {
-      this.setState({
-        allowToProceed: true,
-        nextBtnDisabled: false
-      })
-    }
   }
 
   render() {
@@ -45,9 +25,17 @@ class CredentialsPanel extends Component {
 
     return (
       <div className={styles}>
+        <h2>Your Public Key</h2>
+        <p>A public key is an anonymous signature that can be used to identify
+        a timestamp on a blockchain.
+        </p>
+        <p>The proof you are about to timestamp will be associated with the following
+        public key that you automatically get from MetaMask.
+        </p>
         <Form>
+
           <div className="form-section">
-            <Label text="Your Account ID (from MetaMask)" />
+            <Label text="Your Public Key (from MetaMask)" />
             <Input
               type="text"
               disabled

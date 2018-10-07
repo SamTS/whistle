@@ -7,8 +7,9 @@ import Typography           from 'components/Typography'
 import ArrowBackIcon        from '@material-ui/icons/ArrowBack'
 import IconButton           from '@material-ui/core/IconButton'
 import CredentialsPanel     from './panels/CredentialsPanel'
+import GenerateProofPanel   from './panels/GenerateProofPanel'
 import GenerateHashPanel    from './panels/GenerateHashPanel'
-import RegisterAssetPanel   from './panels/RegisterAssetPanel'
+import RegisterProofPanel   from './panels/RegisterProofPanel'
 import SuccessPanel         from './panels/SuccessPanel'
 import { styles }           from './styles.scss'
 
@@ -18,7 +19,7 @@ class MobileView extends Component {
     const currentPanel = parseInt(history.location.search.substr(1).split('=')[1], 10)
 
     if (currentPanel === 1) {
-      history.push('/upload')
+      history.push('/politics')
     } else {
       history.push(`/register?panel=${currentPanel - 1}`)
     }
@@ -31,10 +32,12 @@ class MobileView extends Component {
       case 1:
         return <CredentialsPanel />
       case 2:
-        return <GenerateHashPanel />
+        return <GenerateProofPanel />
       case 3:
-        return <RegisterAssetPanel />
+        return <GenerateHashPanel />
       case 4:
+        return <RegisterProofPanel />
+      case 5:
         return <SuccessPanel />
       default:
         break

@@ -4,7 +4,7 @@ import Stepper              from 'components/Steppers'
 import CredentialsPanel     from './panels/CredentialsPanel'
 import GenerateProofPanel   from './panels/GenerateProofPanel'
 import GenerateHashPanel    from './panels/GenerateHashPanel'
-import RegisterAssetPanel   from './panels/RegisterAssetPanel'
+import RegisterProofPanel   from './panels/RegisterProofPanel'
 import SuccessPanel         from './panels/SuccessPanel'
 import { styles }           from './styles.scss'
 
@@ -20,7 +20,7 @@ class DesktopView extends Component {
       case 3:
         return <GenerateHashPanel />
       case 4:
-        return <RegisterAssetPanel />
+        return <RegisterProofPanel />
       case 5:
         return <SuccessPanel />
       default:

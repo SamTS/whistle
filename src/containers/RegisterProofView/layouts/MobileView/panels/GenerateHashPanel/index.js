@@ -23,7 +23,7 @@ class GenerateHashPanel extends Component {
     if (proofHash === '') {
       setTimeout(() => {
         actions.proof.checkIfRegistered(proofHash)
-      }, 2000)
+      }, 1000)
     }
 
     if (proofHash !== '') {
@@ -48,7 +48,7 @@ class GenerateHashPanel extends Component {
 
   proceed = () => {
     const { history } = this.props
-    history.push('/register?panel=3')
+    history.push('/register?panel=4')
   }
 
   render() {
@@ -56,12 +56,10 @@ class GenerateHashPanel extends Component {
     const { alreadyExists, proofHash, error } = proof
     let content
 
-    console.log('just renderining proofHash', proofHash)
-
     if (alreadyExists) {
       content = (
         <div className="notification">
-          <h2>Sorry, someone already registered this hash!</h2>
+          <h2>Sorry, this hash has already been timestamped!</h2>
           <span className="action"><Link to="/home">Upload a new proof</Link></span>
         </div>
       )
@@ -69,6 +67,7 @@ class GenerateHashPanel extends Component {
       content = (
         <div>
           <h2>Unique hash (SHA-256) of your proof</h2>
+          <span>Click Next to register your proof</span>
           <div id="unique-hash">{proofHash}</div>
         </div>
       )
@@ -82,7 +81,7 @@ class GenerateHashPanel extends Component {
     } else if (proof.stagedProof) {
       content = (
         <div>
-          <h2>Generating a unique hash of your Proof...</h2>
+          <h2>Generating a unique hash of your proof...</h2>
           <div id="hash-progress-indicator">
             <ProgressIndicator type="linear" />
             <span className="blink-me">Please hold on...</span>
@@ -92,8 +91,8 @@ class GenerateHashPanel extends Component {
     } else {
       content = (
         <div className="notification">
-          <h2>Please upload a Proof to timestamp</h2>
-          <span className="action"><Link to="/home">Upload A Proof</Link></span>
+          <h2>Please upload a proof to timestamp</h2>
+          <span className="action"><Link to="/home">Upload a proof</Link></span>
         </div>
       )
     }
