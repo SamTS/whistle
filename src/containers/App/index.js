@@ -13,7 +13,7 @@ import theme                        from 'configs/theme/config-theme'
 import PoliticsView                 from 'containers/PoliticsView'
 import BusinessView                 from 'containers/BusinessView'
 import EthicsView                   from 'containers/EthicsView'
-import UploadView                   from 'containers/UploadView'
+import UploadTextView                   from 'containers/UploadTextView'
 import BloomView                   from 'containers/BloomView'
 import AddMenu                   from 'containers/AddMenu'
 import RegisterProofView            from 'containers/RegisterProofView'
@@ -45,7 +45,7 @@ class App extends Component {
             <NormalLayoutRoute path="/politics" component={PoliticsView} />
             <NormalLayoutRoute path="/business" component={BusinessView} />
             <NormalLayoutRoute path="/ethics" component={EthicsView} />
-            <NormalLayoutRoute path="/upload" component={UploadView} />
+            <NormalLayoutRoute path="/upload" component={UploadTextView} />
             <NormalLayoutRoute path="/addMenu" component={AddMenu} />
             <NormalLayoutRoute path="/bloom" component={BloomView} />
             <RegistrationLayoutRoute path="/register" component={RegisterProofView} />
