@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
-import { connect }    from 'react-redux'
-import Web3 from "web3";
-import {bindActionCreators} from "redux";
+import React, { Component }        from 'react'
+import PropTypes                   from 'prop-types'
+import { connect }                 from 'react-redux'
+import { bindActionCreators }      from 'redux'
 import * as accountActionCreators  from 'core/actions/actions-account'
 
-
 class PoliticsView extends Component {
+  componentWillMount() {
+    const { actions } = this.props
+
+    setTimeout(() => {
+      actions.account.getAccounts()
+    }, 2000)
+  }
+
   render() {
-    console.log(this.props.account)
     return (
       <div className="container">Politics-related proofs</div>
     )
@@ -24,8 +30,13 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    account: state.account
+    account: state.account,
+    provider: state.provider
   }
+}
+
+PoliticsView.propTypes = {
+  actions: PropTypes.shape({}).isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PoliticsView)

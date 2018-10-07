@@ -18,7 +18,6 @@ export function accountReducer(state = initialState, action) {
         email: ''
       })
     case constants.ACCOUNT_ADDRESSESS:
-      debugger
       return Object.assign({}, state, {
         accountArray: action.accountArray
       })

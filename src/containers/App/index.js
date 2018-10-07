@@ -33,8 +33,6 @@ class App extends Component {
       const web3Provider = new Web3(currentProvider)
       actions.provider.setProvider(web3Provider)
     }
-
-    actions.account.getAccounts()
   }
 
   render() {
