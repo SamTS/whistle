@@ -10,4 +10,12 @@
     position: relative;
     top: 10px;
   }
+
+  .politics-validated {
+    color: green !important;
+  }
+  
+  .politics-pending {
+    color: yellow !important;
+  }
 }

@@ -2,4 +2,12 @@
   .politics-disclosure {
     width: 100px;
   }
+
+  .politics-validated {
+    color: green !important;
+  }
+  
+  .politics-pending {
+    color: yellow !important;
+  }
 }
