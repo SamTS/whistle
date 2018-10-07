@@ -43,7 +43,7 @@ class PoliticsView extends Component {
       )
     }
 
-    return <div>yo</div>
+    return <div>.</div>
   }
 }
 
