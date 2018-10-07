@@ -16,7 +16,7 @@ class GenerateProofPanel extends Component {
     super(props)
     this.state = {
       enteredProof: '',
-      nextBtnDisabled: false,
+      nextBtnDisabled: true,
       prevDisabled: false
     }
   }
@@ -25,7 +25,8 @@ class GenerateProofPanel extends Component {
     const { value } = evt.currentTarget
 
     this.setState({
-      enteredProof: value
+      enteredProof: value,
+      nextBtnDisabled: value !== '' ? false : true
     })
   }
 
