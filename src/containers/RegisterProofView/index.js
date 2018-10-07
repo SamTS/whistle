@@ -33,11 +33,6 @@ class RegisterProofView extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    asset: state.asset
-  }
-}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -58,4 +53,4 @@ RegisterProofView.defaultProps = {
   proof: null
 }
 
-export default withWidth()(connect(mapStateToProps, mapDispatchToProps)(RegisterProofView))
+export default withWidth()(connect(null, mapDispatchToProps)(RegisterProofView))
