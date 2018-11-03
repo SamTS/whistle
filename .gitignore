@@ -11,7 +11,8 @@ dist
 # misc
 .DS_Store
 .env
-.idea
+.idea/*
+.idea/workspace.xml
 
 npm-debug.log
 .truffle-solidity-loader
